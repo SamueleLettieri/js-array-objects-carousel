@@ -9,6 +9,7 @@
 }
 
 .ms_img-caros{
+    display: block;
     width: 100%;
     height: 500px;
     object-fit: cover;
@@ -34,4 +35,8 @@
 
 .ms_d_n{
     display: none;
+}
+
+.active{
+    display: block;
 }
