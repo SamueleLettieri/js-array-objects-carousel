@@ -17,16 +17,19 @@
 
 .ms_p-abs_h{
     position: absolute;
-    right: 500px;
+    right:0;
     top: 0;
     color: white;
+    padding-right: 15px;
+    ;
 }
 
 .ms_p-abs_p{
     position: absolute;
-    right: 105px;
+    right: 0;
     top: 50px;
     color: white;
+    padding-right: 15px;
 }
 
 .ms_j-b{

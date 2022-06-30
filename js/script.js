@@ -34,31 +34,7 @@ const container = document.querySelector("div.cards_container");
 let box = document.createElement("div");
 box.classList.add("col-12", "ms_p-r");
 
-
-box = document.createElement("div");
-box.classList.add("col-12", "ms_p-r", "active");
-container.append(box)
-
-let imgCarousel = document.createElement("img");
-imgCarousel.classList.add("ms_img-caros",);
-imgCarousel.setAttribute("src", images[index].url);
-box.append(imgCarousel);
-imgCarousel.innerHTML += images[index].url
-    
-let h2Title = document.createElement("h2");
-h2Title.classList.add("ms_p-abs_h");
-box.append(h2Title);
-h2Title.innerHTML += images[index].title;
-    
-let pDescription = document.createElement("p");
-pDescription.classList.add("ms_p-abs_p",);
-box.append(pDescription);
-pDescription.innerHTML += images[index].description;
-
-
-
-
-
+divImg();
 
 
 const nextButton = document.querySelector("#next"); 
@@ -66,39 +42,18 @@ const nextButton = document.querySelector("#next");
 nextButton.addEventListener("click", function() {
     box.classList.remove("active")
     box.classList.add("ms_d_n")
-
+    
     index++
     if(index === images.length){
         index = 0;
     }
-
-    box = document.createElement("div");
-    box.classList.add("col-12", "ms_p-r", "active");
-    container.append(box)
     
-    let imgCarousel = document.createElement("img");
-    imgCarousel.classList.add("ms_img-caros",);
-    imgCarousel.setAttribute("src", images[index].url);
-    box.append(imgCarousel);
-
-    let h2Title = document.createElement("h2");
-    h2Title.classList.add("ms_p-abs_h");
-    box.append(h2Title);
-    h2Title.innerHTML += images[index].title;
-        
-    let pDescription = document.createElement("p");
-    pDescription.classList.add("ms_p-abs_p",);
-    box.append(pDescription);
-    pDescription.innerHTML += images[index].description;
+    divImg();
     
     box.setAttribute("src", images[index].url);
     console.log(imgCarousel)
-
-   
-
+    
     box.classList.add("active")
-
-
 });
 
 
@@ -107,20 +62,36 @@ const previousButton = document.querySelector("#previous");
 previousButton.addEventListener("click", function() {
     box.classList.remove("active")
     box.classList.add("ms_d_n")
-
+    
     index--
     if(index === -1){
         index = images.length - 1;
     }
+    
+    divImg();
+
+    pDescription.innerHTML += images[index].description;
+    
+    box.setAttribute("src", images[index].url);
+    console.log(imgCarousel)
+    
+    box.classList.add("active")
+}); 
+
+
+
+
+
+function divImg(){
     box = document.createElement("div");
     box.classList.add("col-12", "ms_p-r", "active");
     container.append(box)
-    
+
     let imgCarousel = document.createElement("img");
     imgCarousel.classList.add("ms_img-caros",);
     imgCarousel.setAttribute("src", images[index].url);
     box.append(imgCarousel);
-
+        
     let h2Title = document.createElement("h2");
     h2Title.classList.add("ms_p-abs_h");
     box.append(h2Title);
@@ -130,12 +101,4 @@ previousButton.addEventListener("click", function() {
     pDescription.classList.add("ms_p-abs_p",);
     box.append(pDescription);
     pDescription.innerHTML += images[index].description;
-    
-    box.setAttribute("src", images[index].url);
-    console.log(imgCarousel)
-
-   
-
-    box.classList.add("active")
-
-}); 
+}
